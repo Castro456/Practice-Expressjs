@@ -11,3 +11,14 @@ app.get('/', (req, res) => {
 })
 
 app.listen(3000)
+
+/**
+ * npm cmds used:
+ * 
+ * To create package.json: npm init-y
+ * Install express: npm i express
+ * Save nodemon as dev: npm i --save-dev nodemon
+ * Run a script: npm run devStart
+ * Install ejs module for view rendering: npm i ejs
+ * 
+ */
