@@ -10,6 +10,9 @@ app.get('/', (req, res) => {
   res.render('index', {text: 'ExpressJs'}) // normally this won't work bkx won't have view engine setup. ejs & pug are popular
 })
 
+const usersRouter = require("./routes/users")
+app.use("/users", usersRouter)
+
 app.listen(3000)
 
 /**
