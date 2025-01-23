@@ -13,7 +13,8 @@ app.get('/', (req, res) => {
 
 app.get('/middle', logger, (req, res) => {
   //Now the logger middleware runs only for this route
-  res.status(500).send('Middleware')
+  // To get the value from the url like this ?name=bus
+  res.status(200).send(req.query.name)
 })
 
 const usersRouter = require("./routes/users")
