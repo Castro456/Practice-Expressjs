@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 
 app.set('view engine', 'ejs') //static code
+app.use(logger)
 
 app.get('/', (req, res) => {
   console.log('hello get method');
@@ -12,6 +13,11 @@ app.get('/', (req, res) => {
 
 const usersRouter = require("./routes/users")
 app.use("/users", usersRouter)
+
+function logger(req, res, next) {
+  console.log('Hello Middleware');
+  next()
+}
 
 app.listen(3000)
 
