@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.set('view engine', 'ejs') //static code
-app.use(logger)
+// app.use(logger)
 
 app.get('/', (req, res) => {
   console.log('hello get method');
@@ -11,11 +11,16 @@ app.get('/', (req, res) => {
   res.render('index', {text: 'ExpressJs'}) // normally this won't work bkx won't have view engine setup. ejs & pug are popular
 })
 
+app.get('/middle', logger, (req, res) => {
+  //Now the logger middleware runs only for this route
+  res.status(500).send('Middleware')
+})
+
 const usersRouter = require("./routes/users")
 app.use("/users", usersRouter)
 
 function logger(req, res, next) {
-  console.log('Hello Middleware');
+  console.log(req.originalUrl);
   next()
 }
 
