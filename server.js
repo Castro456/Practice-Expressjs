@@ -8,6 +8,13 @@ app.set('view engine', 'ejs') //static code
 // Declare the folder name and access every files inside that folder.
 app.use(express.static("public"))
 
+//This middleware allow to pass form data in the url
+app.use(express.urlencoded({ extended: true}))
+// This middleware used to pass json in the url
+app.use(express.json())
+// Bkz nodejs by default won't allow to pass these in the url
+
+
 app.get('/hello', (req, res) => {
   console.log('hello get method');
   // res.status(200).json({"message": "Hello for Express.js"}) //chain the status
